@@ -6,7 +6,7 @@
 /*   By: jponieck <jponieck@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 22:33:08 by jponieck          #+#    #+#             */
-/*   Updated: 2024/03/16 18:40:18 by jponieck         ###   ########.fr       */
+/*   Updated: 2024/03/16 19:46:59 by jponieck         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ int	cut_copy_string(char *src, int start, char *dest, int size)
 }
 
 // checks and returns last line if not null
-char	*check_last(char *line, int *mode_4)
+char	*check_last(char *line, int *mode_4, int res)
 {
-	if (*mode_4 != 3)
+	if (*mode_4 != 3 && res != -1)
 	{
 		*mode_4 = 5;
 		return (line);
