@@ -38,3 +38,33 @@ char	*get_next_line(int fd)
 	}
 	return (NULL);
 }
+
+/* #include <stdio.h>
+#include <fcntl.h>
+#include "get_next_line.h"
+
+int	main(int argc, char **argv)
+{
+	int		fd;
+	char	*res;
+	int		i;
+	int		bs;
+
+	if (argc > 0)
+		fd = open(argv[1], O_RDONLY);
+	res = "init";
+	i = 0;
+	bs = BUFFER_SIZE;
+	printf("buffer size is: %d\n\n", bs);
+	while (res && i < 14)
+	{
+		res = get_next_line(fd);
+		if (res)
+		{
+			printf("%s", res);
+			printf("--- --- ---\n");
+		}
+		i++;
+		free(res);
+	}
+} */

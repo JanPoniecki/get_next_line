@@ -75,7 +75,7 @@ int	cut_copy_string(char *src, int start, char *dest, int size)
 // checks and returns last line if not null
 char	*check_last(char *line, int *mode_4, int res)
 {
-	if (*mode_4 != 3 && res != -1)
+	if (*mode_4 != 3 && *mode_4 != 0 && res != -1)
 	{
 		*mode_4 = 5;
 		return (line);
@@ -100,9 +100,8 @@ char	*get_from_buffer(char *buffer, int *mode)
 	temp = t_line;
 	i = count_tools(buffer, '\n', 1);
 	j = count_tools(temp, 0, 0);
-	t_line = malloc(j + i + 1);
+	t_line = malloc(j + i + 2);
 	cut_copy_string(temp, 0, t_line, -1);
-	free(temp);
 	j = cut_copy_string(buffer, j, t_line, i);
 	t_line[j] = 0;
 	if (j > 0 && t_line[j - 1] == '\n')
@@ -110,5 +109,6 @@ char	*get_from_buffer(char *buffer, int *mode)
 	else
 		*mode = 2;
 	string_tools(buffer, 0, i + 1);
+	free(temp);
 	return (t_line);
 }
