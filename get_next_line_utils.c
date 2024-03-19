@@ -6,7 +6,7 @@
 /*   By: jponieck <jponieck@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 22:33:08 by jponieck          #+#    #+#             */
-/*   Updated: 2024/03/16 19:46:59 by jponieck         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:40:29 by jponieck         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ char	*get_from_buffer(char *buffer, int *mode)
 	i = count_tools(buffer, '\n', 1);
 	j = count_tools(temp, 0, 0);
 	t_line = malloc(j + i + 2);
+	if (!t_line)
+		return (NULL);
 	cut_copy_string(temp, 0, t_line, -1);
 	j = cut_copy_string(buffer, j, t_line, i);
 	t_line[j] = 0;
